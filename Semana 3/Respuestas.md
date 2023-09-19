@@ -1,4 +1,4 @@
-#Modismos en Ruby
+# Modismos en Ruby
 
 ### 1. Define los principales modismos de Ruby
 
@@ -124,7 +124,7 @@
 3. ¿Qué se almacena en $1 cuando la cadena `25 to 1` se compara con las siguientes expresiones regulares?:
    - `/(\d+)$/`
    - `/^\d+([^0-9]+)/`
-4. ¿Por qué `5.superclass` resulta en un error de 'método indefinido'?
+### 4. ¿Por qué `5.superclass` resulta en un error de 'método indefinido'?
 5. ¿Cuántas clases antecesoras tiene el objeto `5`?
 6. Teniendo en cuenta que `superclass` devuelve `nil` cuando se le llama sobre `BasicObject` pero devuelve un valor no `nil` en el resto de ocasiones, escribe un método Ruby que, cuando se le pase un objeto, escriba la clase del objeto y sus clases ancestras hasta `BasicObject`.
 7. ¿Cuál es el método `send` equivalente de las siguientes expresiones?: `a<b`, `a==b`, `x[0]`, `x[0]= 'f1'`.
