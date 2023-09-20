@@ -1,8 +1,6 @@
-# Actividad Hola Ruby
+# Parte 1
 
-## Parte 1
-
-### Método sum
+## Método sum
 - Resultados de las pruebas **antes** de definir el método:
 ```shell
 Failures:
@@ -45,7 +43,7 @@ Run options: include {:full_description=>/\#sum\ /}
 Finished in 0.02331 seconds (files took 0.51766 seconds to load)
 3 examples, 0 failures
 ```
-### Método max_2_sum
+## Método max_2_sum
 - Resultados de las pruebas **antes** de definir el método
 ```shell
 Failures:
@@ -109,7 +107,7 @@ Finished in 0.02181 seconds (files took 0.50547 seconds to load)
 5 examples, 0 failures
 ```
 
-### Método sum_to_n
+## Método sum_to_n?
 - Resultados de las pruebas **antes** de definir el método
 ```shell
 Failures:
@@ -172,6 +170,116 @@ Run options: include {:full_description=>/\#sum_to_n/}
 Finished in 0.0143 seconds (files took 0.5777 seconds to load)
 4 examples, 0 failures 
 ```
-## Parte 2
+# Parte 2
 
+## Método hello
+- Resultados de las pruebas **antes** de definir el método:
+```shell
+Failures:
 
+  1) #hello El metodo hello retorna la cadena correcta
+     Failure/Error: expect(hello('Checha').class).to eq(String)
+
+       expected: String
+            got: NilClass
+
+       (compared using ==)
+
+       Diff:
+       @@ -1 +1 @@
+       -String
+       +NilClass
+
+     # ./spec/parte2_spec.rb:11:in `block (2 levels) in <top (required)>'
+
+Finished in 0.20525 seconds (files took 1.64 seconds to load)
+2 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/parte2_spec.rb:10 # #hello El metodo hello retorna la cadena correcta
+```
+- Definimos un método `hello(name)` que toma una cadena que represente un nombre y devuelve la cadena `"Hello"`, concatenada con el nombre
+
+```Ruby
+def hello(name)
+  return "Hello, #{name}"
+end
+```
+
+- Resultados de las pruebas **después** de definir el método:
+```shell
+Run options: include {:full_description=>/\#hello/}
+..
+
+Finished in 0.01036 seconds (files took 0.53038 seconds to load)
+2 examples, 0 failures
+```
+## Método start_with_consonant?
+- Resultados de las pruebas **antes** de definir el método:
+```shell
+Failures:
+
+  1) #starts_with_consonant? clasifica casos verdaderos
+     Failure/Error: expect(starts_with_consonant?('v')).to be_truthy, "'v' es una consonante"
+       'v' es una consonante
+     # ./spec/parte2_spec.rb:23:in `block (2 levels) in <top (required)>'
+
+Finished in 0.09869 seconds (files took 0.74415 seconds to load)
+5 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/parte2_spec.rb:22 # #starts_with_consonant? clasifica casos verdaderos
+```
+- Definimos un método `start_with_consonant?(n)` que toma una cadena y devuelve verdadero si comienza con una consonante y falso en caso contrario.
+
+```Ruby
+def starts_with_consonant? s
+  return false if s.empty?
+  
+  if s[0].match(/[^aeiouAEIOU\s\W\d]/)
+    return true
+  end
+
+  false
+end
+```
+
+- Resultados de las pruebas **después** de definir el método:
+```shell
+Run options: include {:full_description=>/\#starts_with_consonant\?/}
+.....
+
+Finished in 0.01385 seconds (files took 0.85151 seconds to load)
+5 examples, 0 failures
+```
+
+## Método binary_multiple_de_4?
+- Resultados de las pruebas **antes** de definir el método:
+```shell
+Failures:
+
+  1) #binary_multiple_of_4? clasifica numeros binarios validos
+     Failure/Error: expect(binary_multiple_of_4?(string)).to be_truthy,  "Resultado incorrecto para la entrada: \"#{string}\""
+       Resultado incorrecto para la entrada: "1010101010100"
+     # ./spec/parte2_spec.rb:48:in `block (3 levels) in <top (required)>'
+     # ./spec/parte2_spec.rb:47:in `each'
+     # ./spec/parte2_spec.rb:47:in `block (2 levels) in <top (required)>'
+
+Finished in 0.09669 seconds (files took 0.70399 seconds to load)
+3 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/parte2_spec.rb:46 # #binary_multiple_of_4? clasifica numeros binarios validos
+```
+- Definimos un método `binary_multiple_de_4?(s)` que toma una cadena y devuelve verdadero si la cadena representa un número binario que es múltiplo de 4, como '1000'.
+```Ruby
+
+```
+
+- Resultados de las pruebas **después** de definir el método:
+```shell
+
+```

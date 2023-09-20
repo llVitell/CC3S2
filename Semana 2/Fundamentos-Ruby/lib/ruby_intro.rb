@@ -38,11 +38,17 @@ end
 # Parte 2
 
 def hello(name)
-  # COMPLETA TU CODIGO
+  return "Hello, #{name}"
 end
 
 def starts_with_consonant? s
-  # COMPLETA TU CODIGO
+  return false if s.empty?
+  
+  if s[0].match(/[^aeiouAEIOU\s\W\d]/)
+    return true
+  end
+
+  false
 end
 
 def binary_multiple_of_4? s
