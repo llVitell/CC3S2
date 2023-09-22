@@ -7,7 +7,7 @@ describe 'BookInStock' do
     expect { BookInStock }.not_to raise_error
   end
 
-  describe 'getters y setters' do
+  describe 'getters and setters' do
     before(:each)  { @book = BookInStock.new('isbn1', 33.8) }
     it 'debe establecer ISBN ' do
       expect(@book.isbn).to eq('isbn1')

@@ -294,3 +294,208 @@ Run options: include {:full_description=>/\#binary_multiple_of_4\?/}
 Finished in 0.03363 seconds (files took 2.05 seconds to load)
 3 examples, 0 failures
 ```
+# Parte 3
+
+## Class BookInStock
+- Resultados de las pruebas **antes** de definir la clase:
+```shell
+Failures:
+
+  1) BookInStock getters and setters debe establecer ISBN
+     Failure/Error: before(:each)  { @book = BookInStock.new('isbn1', 33.8) }
+
+     ArgumentError:
+       wrong number of arguments (given 2, expected 0)
+     # ./spec/parte3_spec.rb:11:in `initialize'
+     # ./spec/parte3_spec.rb:11:in `new'
+     # ./spec/parte3_spec.rb:11:in `block (3 levels) in <top (required)>'
+
+  2) BookInStock getters and setters deberia establecer el precio
+     Failure/Error: before(:each)  { @book = BookInStock.new('isbn1', 33.8) }
+
+     ArgumentError:
+       wrong number of arguments (given 2, expected 0)
+     # ./spec/parte3_spec.rb:11:in `initialize'
+     # ./spec/parte3_spec.rb:11:in `new'
+     # ./spec/parte3_spec.rb:11:in `block (3 levels) in <top (required)>'
+
+  3) BookInStock getters and setters deberia cambiar el ISBN
+     Failure/Error: before(:each)  { @book = BookInStock.new('isbn1', 33.8) }
+
+     ArgumentError:
+       wrong number of arguments (given 2, expected 0)
+     # ./spec/parte3_spec.rb:11:in `initialize'
+     # ./spec/parte3_spec.rb:11:in `new'
+     # ./spec/parte3_spec.rb:11:in `block (3 levels) in <top (required)>'
+
+  4) BookInStock getters and setters deberia cambiar el precio
+     Failure/Error: before(:each)  { @book = BookInStock.new('isbn1', 33.8) }
+
+     ArgumentError:
+       wrong number of arguments (given 2, expected 0)
+     # ./spec/parte3_spec.rb:11:in `initialize'
+     # ./spec/parte3_spec.rb:11:in `new'
+     # ./spec/parte3_spec.rb:11:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00223 seconds (files took 0.51902 seconds to load)
+4 examples, 4 failures
+
+Failed examples:
+
+rspec ./spec/parte3_spec.rb:12 # BookInStock getters and setters debe establecer ISBN
+rspec ./spec/parte3_spec.rb:15 # BookInStock getters and setters deberia establecer el precio
+rspec ./spec/parte3_spec.rb:18 # BookInStock getters and setters deberia cambiar el ISBN
+rspec ./spec/parte3_spec.rb:22 # BookInStock getters and setters deberia cambiar el precio
+```
+- Define una clase `BookInStock` que representa un libro con un número ISBN, isbn y el precio del libro como número de punto flotante, precio, como atributos
+
+```Ruby
+class BookInStock
+  attr_accessor :isbn, :price
+
+  def initialize(isbn, price)
+    @isbn = isbn
+    @price = price
+  end
+
+end
+```
+
+- Resultados de las pruebas **después** de definir la clase:
+```shell
+Run options: include {:full_description=>/getters\ and\ setters/}
+....
+
+Finished in 0.01664 seconds (files took 0.515 seconds to load)
+4 examples, 0 failures
+```
+## Constructor
+- Resultados de las pruebas **antes** de definir el constructor:
+```shell
+Failures:
+
+  1) BookInStock constructor debe rechazar el numero ISBN no valido
+     Failure/Error: expect { BookInStock.new('', 25.00) }.to raise_error(ArgumentError)
+       expected ArgumentError but nothing was raised
+     # ./spec/parte3_spec.rb:29:in `block (3 levels) in <top (required)>'
+
+  2) BookInStock constructor debe rechazar el precio cero
+     Failure/Error: expect { BookInStock.new('isbn1', 0) }.to raise_error(ArgumentError)
+       expected ArgumentError but nothing was raised
+     # ./spec/parte3_spec.rb:32:in `block (3 levels) in <top (required)>'
+
+  3) BookInStock constructor debe rechazar el precio negativo
+     Failure/Error: expect { BookInStock.new('isbn1', -5.0) }.to raise_error(ArgumentError)
+       expected ArgumentError but nothing was raised
+     # ./spec/parte3_spec.rb:35:in `block (3 levels) in <top (required)>'
+
+Finished in 0.14978 seconds (files took 0.5015 seconds to load)
+3 examples, 3 failures
+
+Failed examples:
+
+rspec ./spec/parte3_spec.rb:28 # BookInStock constructor debe rechazar el numero ISBN no valido
+rspec ./spec/parte3_spec.rb:31 # BookInStock constructor debe rechazar el precio cero
+rspec ./spec/parte3_spec.rb:34 # BookInStock constructor debe rechazar el precio negativo
+```
+- El constructor acepta el número ISBN como primer argumento y el precio como segundo argumento y genera `ArgumentError` si el número ISBN es la cadena vacía o si el precio es menor o igual a cero.
+
+```Ruby
+class BookInStock
+  attr_accessor :isbn, :price
+
+  def initialize(isbn, price)
+    if isbn.empty? 
+      raise ArgumentError, "El ISBN no puede ser vacío"
+    end
+    if price <= 0 
+      raise ArgumentError, "El precio debe ser mayor que cero"
+    end
+    @isbn = isbn
+    @price = price
+  end
+
+end
+```
+
+- Resultados de las pruebas **después** de definir el constructor:
+```shell
+Run options: include {:full_description=>/constructor/}
+...
+
+Finished in 0.00736 seconds (files took 0.5455 seconds to load)
+3 examples, 0 failures
+```
+## Método price_as_string
+- Resultados de las pruebas **antes** de definir el método:
+```shell
+Failures:
+
+  1) BookInStock #price_as_string esto deberia ser definido
+     Failure/Error: expect(BookInStock.new('isbn1', 10)).to respond_to(:price_as_string)
+       expected #<BookInStock:0x0000019ace4d0890 @isbn="isbn1", @price=10> to respond to :price_as_string
+     # ./spec/parte3_spec.rb:40:in `block (3 levels) in <top (required)>'
+
+  2) BookInStock #price_as_string debe mostrar 33.95 como "$33.95"
+     Failure/Error: expect(BookInStock.new('isbn11', 33.95).price_as_string).to eq('$33.95')
+
+     NoMethodError:
+       undefined method `price_as_string' for #<BookInStock:0x0000019ace393568 @isbn="isbn11", @price=33.95>
+     # ./spec/parte3_spec.rb:43:in `block (3 levels) in <top (required)>'
+
+  3) BookInStock #price_as_string debe mostrar  1.1 como $1.10
+     Failure/Error: expect(BookInStock.new('isbn11', 1.1).price_as_string).to eq('$1.10')
+
+     NoMethodError:
+       undefined method `price_as_string' for #<BookInStock:0x0000019ace2fe760 @isbn="isbn11", @price=1.1>
+     # ./spec/parte3_spec.rb:46:in `block (3 levels) in <top (required)>'
+
+  4) BookInStock #price_as_string debe mostrar  20 como $20.00
+     Failure/Error: expect(BookInStock.new('isbn11', 20).price_as_string).to eq('$20.00')
+
+     NoMethodError:
+       undefined method `price_as_string' for #<BookInStock:0x0000019ace2fbf88 @isbn="isbn11", @price=20>
+     # ./spec/parte3_spec.rb:49:in `block (3 levels) in <top (required)>'
+
+Finished in 0.0634 seconds (files took 0.4831 seconds to load)
+4 examples, 4 failures
+
+Failed examples:
+
+rspec ./spec/parte3_spec.rb:39 # BookInStock #price_as_string esto deberia ser definido
+rspec ./spec/parte3_spec.rb:42 # BookInStock #price_as_string debe mostrar 33.95 como "$33.95"
+rspec ./spec/parte3_spec.rb:45 # BookInStock #price_as_string debe mostrar  1.1 como $1.10
+rspec ./spec/parte3_spec.rb:48 # BookInStock #price_as_string debe mostrar  20 como $20.00
+```
+- El método price_as_string devuelve el precio del libro formateado con un signo de dólar inicial y dos decimales, es decir, un precio de 20 debe tener el formato $20.00 y un precio de 33.8 debe tener el formato $33.80.
+
+```Ruby
+class BookInStock
+  attr_accessor :isbn, :price
+
+  def initialize(isbn, price)
+    if isbn.empty? 
+      raise ArgumentError, "El ISBN no puede ser vacío"
+    end
+    if price <= 0 
+      raise ArgumentError, "El precio debe ser mayor que cero"
+    end
+    @isbn = isbn
+    @price = price
+  end
+
+  def price_as_string
+    "$%.2f" % @price
+  end
+
+end
+```
+
+- Resultados de las pruebas **después** de definir el método:
+```shell
+Run options: include {:full_description=>/\#price_as_string/}
+....
+
+Finished in 0.00935 seconds (files took 0.48902 seconds to load)
+4 examples, 0 failures
+```
