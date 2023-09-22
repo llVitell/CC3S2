@@ -52,7 +52,12 @@ def starts_with_consonant? s
 end
 
 def binary_multiple_of_4? s
-  # COMPLETA TU CODIGO
+  if s.match?(/^[01]+$/)
+    binary_number = s.to_i(2)
+    return binary_number % 4 == 0
+  end
+
+  return false
 end
 
 # Parte 3

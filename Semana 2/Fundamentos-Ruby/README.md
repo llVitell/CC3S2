@@ -276,10 +276,21 @@ rspec ./spec/parte2_spec.rb:46 # #binary_multiple_of_4? clasifica numeros binari
 ```
 - Definimos un método `binary_multiple_de_4?(s)` que toma una cadena y devuelve verdadero si la cadena representa un número binario que es múltiplo de 4, como '1000'.
 ```Ruby
+def binary_multiple_of_4? s
+  if s.match?(/^[01]+$/)
+    binary_number = s.to_i(2)
+    return binary_number % 4 == 0
+  end
 
+  return false
+end
 ```
 
 - Resultados de las pruebas **después** de definir el método:
 ```shell
+Run options: include {:full_description=>/\#binary_multiple_of_4\?/}
+...
 
+Finished in 0.03363 seconds (files took 2.05 seconds to load)
+3 examples, 0 failures
 ```
