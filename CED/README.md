@@ -234,3 +234,25 @@ add(1, 2);
 
 En resumen ambos lenguajes utilizan estructuras similares para el manejo de excepciones, pero las clases específicas de excepciones y algunos detalles de implementación pueden variar. Como por ejemplo la aplicación de jerarquías en Ruby que no es recomendable usarla en javascript por sus funciones try, catch y finally.
 
+***
+
+## Arquitectura Orientada a Microservicios
+
+La arquitectura de microservicios permite una mayor escalabilidad al permitir que cada microservicio sea independiente y escalable individualmente. 
+
+Facilita el despliegue independiente de servicios, lo que favorece la implementación continua y entrega continua. Además, los microservicios están diseñados para ser independientes y desacoplados, lo que facilita la evolución y mantenimiento de cada componente de manera independiente. 
+
+Sin embargo, esta ventaja puede introducir una mayor complejidad operativa al gestionar múltiples servicios, su comunicación y posiblemente la orquestación de contenedores.
+
+***
+
+## Cliente Servidor en Rails
+
+En una arquitectura monolítica como Rails, la escalabilidad puede ser desafiante, ya que implica escalar la aplicación en su totalidad. Esto puede generar limitaciones en escalabilidad a medida que la aplicación crece. 
+
+El despliegue suele realizarse en su conjunto, llevando a ciclos de desarrollo y despliegue más extensos. La arquitectura monolítica conlleva un mayor acoplamiento entre componentes, lo que hace que los cambios en una área afecten a otras, complicando el mantenimiento. 
+
+Además, al compartir un mismo contexto, la aplicación monolítica tiende a utilizar una tecnología y conjunto de herramientas específicos. Sin embargo, este enfoque suele tener una menor complejidad operativa al contener todo dentro de la aplicación monolítica.
+
+
+
