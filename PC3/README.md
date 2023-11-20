@@ -4,6 +4,10 @@ Integrantes:
 - José Daniel Zapata Ancco / 20202230A
 - Omar Baldomero Vite Allca / 20200479B
 - Ureta Espinal Daniel Antonio / 20154033K
+
+Link del repositorio principal donde estan las ramas:
+
+https://github.com/Daniel349167/PC3-DesarrollodeSoftware
 ***
 # Introducción
 Creamos la Base de Datos:
