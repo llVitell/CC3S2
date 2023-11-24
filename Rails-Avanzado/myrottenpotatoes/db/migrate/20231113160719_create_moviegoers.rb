@@ -4,7 +4,6 @@ class CreateMoviegoers < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :provider
       t.string :uid
-
       t.timestamps
     end
   end
