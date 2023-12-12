@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "jasmine-browser-runner": "^2.3.0"
+  }
+}
