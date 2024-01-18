@@ -1,0 +1,26 @@
+source 'https://rubygems.org'
+
+ruby '3.0.2'
+gem "rails", "~> 7.0.8"
+
+
+gem 'sass-rails', '~> 5.0.3'
+gem 'uglifier', '>= 2.7.1'
+gem "sqlite3", "~> 1.4"
+gem 'jquery-rails'
+gem "puma", "~> 5.0"
+gem 'tzinfo'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+# for Heroku deployment - as described in Ap. A of ELLS book
+group :development, :test do
+  gem 'byebug'
+  gem 'database_cleaner'
+  gem 'cucumber-rails', require: false
+  gem 'rspec-rails'
+  gem 'pry'
+  gem 'pry-byebug'
+
+  # Use sqlite3 as the database for Active Record
+  gem 'web-console', '~> 2.0'
+end
+

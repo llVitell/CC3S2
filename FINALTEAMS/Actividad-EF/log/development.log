@@ -1,0 +1,35 @@
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at C:/Users/viteo/OneDrive/Escritorio/ExamenFinal-CC3S2/Actividad-EF/config/environment.rb:5)
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at C:/Users/viteo/OneDrive/Escritorio/ExamenFinal-CC3S2/Actividad-EF/config/environment.rb:5)
+Started GET "/" for ::1 at 2023-12-13 08:19:16 -0500
+Started GET "/movies" for ::1 at 2023-12-13 08:19:16 -0500
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort_by=id
+Filter chain halted as :force_index_redirect rendered or redirected
+Completed 302 Found in 102ms (ActiveRecord: 0.0ms | Allocations: 18657)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort_by=id" for ::1 at 2023-12-13 08:19:17 -0500
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort_by"=>"id"}
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 5.2ms | Allocations: 4514)
+
+
+  
+ActiveRecord::StatementInvalid (Could not find table 'movies'):
+  
+app/models/movie.rb:10:in `with_ratings'
+app/controllers/movies_controller.rb:12:in `index'
